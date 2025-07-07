@@ -1,5 +1,7 @@
 let playerScore = 0; 
-let ComputerScore = 0;
+let computerScore = 0;
+
+
 
 //round number
 //win number
@@ -35,7 +37,7 @@ function compareChoices(comp, player) {
         return alert("Its a DRAW!");
     }
     else if (comp == "Rock" && player == "Scissor") { 
-        ComputerScore++;
+        computerScore++;
         return alert("The Computer Wins This Round!");
     }
     else if (comp == "Rock" && player == "Paper") { 
@@ -47,11 +49,11 @@ function compareChoices(comp, player) {
         return alert("You Won The Round!");
     }
     else if (comp == "Scissor" && player == "Paper") { 
-        playerScore++;
+        computerScore++;
         return alert("The Computer Wins This Round!");
     }
     else if (comp == "Paper" && player == "Rock") { 
-        playerScore++;
+        computerScore++;
         return alert("The Computer Wins This Round!");
     }
     else if (comp == "Paper" && player == "Scissor") { 
@@ -64,8 +66,16 @@ function compareChoices(comp, player) {
 
 }
 
-compareChoices(getComputerChoice()), (getPlayerChoice());
 
+
+while (playerScore < 3 && computerScore < 3) { 
+    const playerChoice = getPlayerChoice();
+    const computerChoice = getComputerChoice();
+    compareChoices(playerChoice, computerChoice);
+    console.log("Player Score: " + playerScore + " Computer Score: " + computerScore);
+}
+
+    
 
 
 
